@@ -1,0 +1,102 @@
+# fsm-compiler
+
+[![github release](https://img.shields.io/github/v/release/flex-development/fsm-compiler.svg?include_prereleases\&sort=semver)](https://github.com/flex-development/fsm-compiler/releases/latest)
+[![npm](https://img.shields.io/npm/v/@flex-development/fsm-compiler.svg)](https://npmjs.com/package/@flex-development/fsm-compiler)
+[![npm downloads](https://img.shields.io/npm/dm/@flex-development/fsm-compiler.svg)](https://www.npmcharts.com/compare/@flex-development/fsm-compiler?interval=30)
+[![install size](https://packagephobia.now.sh/badge?p=@flex-development/fsm-compiler)](https://packagephobia.now.sh/result?p=@flex-development/fsm-compiler)
+[![minified bundle size](https://badgen.net/bundlephobia/min/@flex-development/fsm-compiler?cache)](https://bundlephobia.com/package/@flex-development/fsm-compiler)
+[![tree shaking suppport](https://badgen.net/bundlephobia/tree-shaking/@flex-development/fsm-compiler)](https://bundlephobia.com/package/@flex-development/fsm-compiler)
+[![codecov](https://codecov.io/github/flex-development/fsm-compiler/graph/badge.svg?token=qLeyGURlL3)](https://codecov.io/github/flex-development/fsm-compiler)
+[![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
+[![license](https://img.shields.io/github/license/flex-development/fsm-compiler.svg)](LICENSE.md)
+[![conventional commits](https://img.shields.io/badge/-conventional%20commits-fe5196?logo=conventional-commits\&logoColor=ffffff)](https://conventionalcommits.org)
+[![typescript](https://img.shields.io/badge/-typescript-3178c6?logo=typescript\&logoColor=ffffff)](https://typescriptlang.org)
+[![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat\&logo=vitest\&logoColor=ffffff)](https://vitest.dev)
+[![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat\&logo=yarn\&logoColor=ffffff)](https://yarnpkg.com)
+
+finite state machine compiler
+
+## Contents
+
+- [What is this?](#what-is-this)
+- [When should I use this?](#when-should-i-use-this)
+- [Install](#install)
+- [Use](#use)
+- [API](#api)
+- [Types](#types)
+- [Contribute](#contribute)
+- [Related](#related)
+
+## What is this?
+
+**TODO**: what is this?
+
+## When should I use this?
+
+**TODO**: when should I use this?
+
+## Install
+
+This package is [ESM only][esm].
+
+In Node.js with [yarn][]:
+
+```sh
+yarn add @flex-development/fsm-compiler
+```
+
+<blockquote>
+  <small>
+    See <a href='https://yarnpkg.com/protocol/git'>Git - Protocols | Yarn</a>
+    &nbsp;for details regarding installing from Git.
+  </small>
+</blockquote>
+
+In Deno with [`esm.sh`][esmsh]:
+
+```ts
+import { /* ... */ } from 'https://esm.sh/@flex-development/fsm-compiler'
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import { /* ... */ } from 'https://esm.sh/@flex-development/fsm-compiler'
+</script>
+```
+
+## Use
+
+**TODO**: use
+
+## API
+
+**TODO**: api
+
+> Please refer to the [source code](./src/) for documentation.
+
+## Types
+
+This package is fully typed with [TypeScript][].
+
+## Contribute
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+This project has a [code of conduct](CODE_OF_CONDUCT.md). By interacting with this repository, organization, or
+community you agree to abide by its terms.
+
+## Related
+
+- [`@flex-development/fsm-tokenizer`][fsm-tokenizer] — finite state machine tokenizer
+
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[esmsh]: https://esm.sh
+
+[fsm-tokenizer]: https://github.com/flex-development/fsm-tokenizer
+
+[typescript]: https://www.typescriptlang.org
+
+[yarn]: https://yarnpkg.com
