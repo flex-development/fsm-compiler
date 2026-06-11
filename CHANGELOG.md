@@ -1,3 +1,4 @@
+## [1.0.0-alpha.2](https://github.com/flex-development/fsm-tokenizer/compare/1.0.0-alpha.1...1.0.0-alpha.2) (2026-06-11)
 
 ## 1.0.0-alpha.1 (2026-06-11)
 
