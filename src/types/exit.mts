@@ -24,14 +24,14 @@ import type { Token, TokenType } from '@flex-development/fsm-tokenizer'
  *
  * @param {Token<T>} token
  *  The corresponding token
- * @param {OnExitError<any, any> | null | undefined} [onError]
+ * @param {OnExitError | null | undefined} [onError]
  *  Handle the case where another token is open
  * @return {undefined}
  */
 type Exit<T extends TokenType = TokenType> = (
   this: CompileContext,
   token: Token<T>,
-  onError?: OnExitError<any, any> | null | undefined
+  onError?: OnExitError | null | undefined
 ) => undefined
 
 export type { Exit as default }

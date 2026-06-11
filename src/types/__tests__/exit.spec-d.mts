@@ -16,9 +16,9 @@ describe('unit-d:types/Exit', () => {
   })
 
   describe('parameters', () => {
-    it('should be callable with [Token<T>, (OnExitError<any, any> | null | undefined)?]', () => {
+    it('should be callable with [Token<T>, (OnExitError | null | undefined)?]', () => {
       // Arrange
-      type Expect = [Token, (OnExitError<any, any> | null | undefined)?]
+      type Expect = [Token, (OnExitError | null | undefined)?]
 
       // Expect
       expectTypeOf<TestSubject>().parameters.toEqualTypeOf<Expect>()

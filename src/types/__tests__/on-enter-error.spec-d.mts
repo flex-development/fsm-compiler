@@ -8,21 +8,15 @@ import type { CompileContext } from '@flex-development/fsm-compiler'
 import type { Token } from '@flex-development/fsm-tokenizer'
 
 describe('unit-d:types/OnEnterError', () => {
-  it('should match [this: Omit<CompileContext, "sliceSerialize">]', () => {
-    // Arrange
-    type Expect = Omit<CompileContext, 'sliceSerialize'>
-
-    // Expect
-    expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<Expect>()
+  it('should match [this: CompileContext]', () => {
+    expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<CompileContext>()
   })
 
   describe('parameters', () => {
-    it('should be callable with [Token<Left> | null | undefined, Token<Right>]', () => {
-      // Arrange
-      type Expect = [Token | null | undefined, Token]
-
-      // Expect
-      expectTypeOf<TestSubject>().parameters.toEqualTypeOf<Expect>()
+    it('should be callable with [Token<L> | undefined, Token<R>]', () => {
+      expectTypeOf<TestSubject>()
+        .parameters
+        .toEqualTypeOf<[Token | undefined, Token]>()
     })
   })
 

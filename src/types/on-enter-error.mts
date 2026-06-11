@@ -14,26 +14,26 @@ import type { Token, TokenType } from '@flex-development/fsm-tokenizer'
  * @see {@linkcode TokenType}
  * @see {@linkcode Token}
  *
- * @template {TokenType} [Left]
- *  The left token type
- * @template {TokenType} [Right]
+ * @template {TokenType} [L]
+ *  The exiting token type
+ * @template {TokenType} [R]
  *  The open token type
  *
- * @this {Omit<CompileContext, 'sliceSerialize'>}
+ * @this {CompileContext}
  *
- * @param {Token<Left> | null | undefined} left
- *  The left token
- * @param {Token<Right>} right
+ * @param {Token<L> | undefined} left
+ *  The exiting token
+ * @param {Token<R>} right
  *  The open token
  * @return {undefined}
  */
 type OnEnterError<
-  Left extends TokenType = TokenType,
-  Right extends TokenType = TokenType
+  L extends TokenType = TokenType,
+  R extends TokenType = TokenType
 > = (
-  this: Omit<CompileContext, 'sliceSerialize'>,
-  left: Token<Left> | null | undefined,
-  right: Token<Right>
+  this: CompileContext,
+  left: Token<L> | undefined,
+  right: Token<R>
 ) => undefined
 
 export type { OnEnterError as default }

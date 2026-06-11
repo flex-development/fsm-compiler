@@ -176,8 +176,14 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
       },
       restoreMocks: true,
       server: {
-        deps: { // required to apply custom conditions to external deps.
-          inline: ['@flex-development/pathe', 'devlop']
+        deps: {
+          inline: [ // required to apply custom conditions to external deps.
+            '@flex-development/fsm-tokenizer',
+            '@flex-development/pathe',
+            '@flex-development/unist-util-builder',
+            '@flex-development/unist-util-stringify-position',
+            'devlop'
+          ]
         }
       },
       setupFiles: [pathe.resolve('__tests__/setup/chai.mts')],

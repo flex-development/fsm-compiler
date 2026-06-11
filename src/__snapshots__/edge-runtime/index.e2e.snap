@@ -2,6 +2,6 @@
 
 exports[`e2e:fsm-compiler > should expose public api 1`] = `
 [
-  "default",
+  "createCompiler",
 ]
 `;

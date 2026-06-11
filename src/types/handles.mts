@@ -12,6 +12,6 @@ import type { TokenType } from '@flex-development/fsm-tokenizer'
  * @see {@linkcode Handle}
  * @see {@linkcode TokenType}
  */
-type Handles = Partial<Record<TokenType, Handle>>
+type Handles = Partial<Record<TokenType, Handle | null | undefined>>
 
 export type { Handles as default }

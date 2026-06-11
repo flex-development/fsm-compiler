@@ -11,7 +11,10 @@ import type { TokenType } from '@flex-development/fsm-tokenizer'
  * @enum {TokenType}
  */
 enum tt {
+  bracketExpression = 'bracketExpression',
+  eoc = 'eoc',
   fail = 'fail',
+  literal = 'literal',
   succ = 'succ'
 }
 

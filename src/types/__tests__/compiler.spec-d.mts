@@ -6,6 +6,7 @@
 import type TestSubject from '#types/compiler'
 import type { Root } from '@flex-development/fsm-compiler'
 import type { Event } from '@flex-development/fsm-tokenizer'
+import type { Nilable } from '@flex-development/tutils'
 
 describe('unit-d:types/Compiler', () => {
   it('should match [this: void]', () => {
@@ -13,8 +14,10 @@ describe('unit-d:types/Compiler', () => {
   })
 
   describe('parameters', () => {
-    it('should be callable with [Event[]]', () => {
-      expectTypeOf<TestSubject>().parameters.toEqualTypeOf<[Event[]]>()
+    it('should be callable with [(Event[] | null | undefined)?]', () => {
+      expectTypeOf<TestSubject>()
+        .parameters
+        .toEqualTypeOf<[Nilable<Event[]>?]>()
     })
   })
 

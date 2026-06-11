@@ -3,14 +3,20 @@
  * @module fsm-compiler/interfaces/Root
  */
 
-import type { Node, Parent } from 'unist'
+import type unist from 'unist'
 
 /**
  * A document or document fragment.
  *
- * @extends {Parent}
+ * @see {@linkcode unist.Node}
+ * @see {@linkcode unist.Parent}
+ *
+ * @template {unist.Node} [Child]
+ *  The child node
+ *
+ * @extends {unist.Parent}
  */
-interface Root<Child extends Node = Node> extends Parent {
+interface Root<Child extends unist.Node = unist.Node> extends unist.Parent {
   /**
    * The list of children.
    *

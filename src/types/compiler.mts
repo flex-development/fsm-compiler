@@ -1,6 +1,6 @@
 /**
- * @file Type Aliases - Compiler
- * @module fsm-compiler/types/Compiler
+ * @file Type Aliases - Compile
+ * @module fsm-compiler/types/Compile
  */
 
 import type { Root } from '@flex-development/fsm-compiler'
@@ -17,11 +17,14 @@ import type { Event } from '@flex-development/fsm-tokenizer'
  *
  * @this {void}
  *
- * @param {Event[]} events
+ * @param {Event[] | null | undefined} [events]
  *  The list of events
  * @return {Tree}
  *  The syntax tree
  */
-type Compiler<Tree extends Root = Root> = (this: void, events: Event[]) => Tree
+type Compile = <Tree extends Root = Root>(
+  this: void,
+  events?: Event[] | null | undefined
+) => Tree
 
-export type { Compiler as default }
+export type { Compile as default }

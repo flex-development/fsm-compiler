@@ -55,14 +55,14 @@ yarn add @flex-development/fsm-compiler
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { /* ... */ } from 'https://esm.sh/@flex-development/fsm-compiler'
+import { createCompiler } from 'https://esm.sh/@flex-development/fsm-compiler'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { /* ... */ } from 'https://esm.sh/@flex-development/fsm-compiler'
+  import { createCompiler } from 'https://esm.sh/@flex-development/fsm-compiler'
 </script>
 ```
 

@@ -30,15 +30,15 @@ import type { Token, TokenType } from '@flex-development/fsm-tokenizer'
  *  The node to enter
  * @param {Token<T>} token
  *  The corresponding token
- * @param {OnEnterError<any, any> | null | undefined} [onError]
- *  Handle the case where `token` is open, but closed by something else
+ * @param {OnEnterError | null | undefined} [onError]
+ *  Handle the case where another token is open, but closed by something else
  * @return {undefined}
  */
 type Enter<N extends Node = Node, T extends TokenType = TokenType> = (
   this: CompileContext,
   node: N,
   token: Token<T>,
-  onError?: OnEnterError<any, any> | null | undefined
+  onError?: OnEnterError | null | undefined
 ) => undefined
 
 export type { Enter as default }

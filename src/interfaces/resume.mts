@@ -16,10 +16,10 @@ interface Resume {
    *
    * @this {CompileContext}
    *
-   * @return {string}
+   * @return {string | null | undefined}
    *  The captured output data
    */
-  (this: CompileContext): string
+  (this: CompileContext): string | null | undefined
 }
 
 export type { Resume as default }

@@ -43,11 +43,7 @@
       "fsm-compiler": "./src/index.mts",
       "default": "./dist/index.mjs"
     },
-    "./package.json": "./package.json",
-    "./utils": {
-      "fsm-compiler": "./src/utils/index.mts",
-      "default": "./dist/utils/index.mjs"
-    }
+    "./package.json": "./package.json"
   },
   "imports": {
     "#fixtures/*": "./__fixtures__/*.mts",
@@ -63,10 +59,6 @@
     "#types/*": {
       "fsm-compiler": "./src/types/*.mts",
       "default": "./dist/types/*.d.mts"
-    },
-    "#utils/*": {
-      "fsm-compiler": "./src/utils/*.mts",
-      "default": "./dist/utils/*.mjs"
     }
   },
   "module": "./dist/index.mjs",
@@ -115,7 +107,9 @@
   },
   "dependencies": {
     "@flex-development/fsm-tokenizer": "1.0.0-alpha.9",
-    "@flex-development/unist-util-stringify-position": "1.0.1"
+    "@flex-development/unist-util-builder": "2.0.0",
+    "@flex-development/unist-util-stringify-position": "1.0.1",
+    "devlop": "1.1.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.3",
@@ -147,7 +141,6 @@
     "convert-hrtime": "5.0.0",
     "cross-env": "10.1.0",
     "cspell": "10.0.1",
-    "devlop": "1.1.0",
     "dprint": "0.54.0",
     "editorconfig": "3.0.2",
     "eslint": "9.33.0",
