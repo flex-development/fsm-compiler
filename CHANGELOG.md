@@ -1,3 +1,4 @@
+
 ## 1.0.0-alpha.1 (2026-06-11)
 
 ### :package: Build
@@ -12,5 +13,6 @@
 ### :house_with_garden: Housekeeping
 
 - [[`1dbbbdb`](https://github.com/flex-development/fsm-compiler/commit/1dbbbdb4197bbf31530d57e3a8c67d9958deb543)] initial commit
+
 
 
