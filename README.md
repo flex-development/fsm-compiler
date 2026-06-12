@@ -24,7 +24,10 @@ finite state machine compiler
 - [Use](#use)
 - [API](#api)
 - [Types](#types)
-- [Contribute](#contribute)
+- [Project](#project)
+  - [Version](#version)
+  - [Contribute](#contribute)
+  - [Sponsor](#sponsor)
 - [Related](#related)
 
 ## What is this?
@@ -80,12 +83,25 @@ In browsers with [`esm.sh`][esmsh]:
 
 This package is fully typed with [TypeScript][].
 
-## Contribute
+## Project
+
+### Version
+
+fsm-compiler adheres to [semver][].
+
+### Contribute
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-This project has a [code of conduct](CODE_OF_CONDUCT.md). By interacting with this repository, organization, or
-community you agree to abide by its terms.
+This project has a [code of conduct](CODE_OF_CONDUCT.md).
+By interacting with this repository, organization, or community you agree to abide by its terms.
+
+### Sponsor
+
+This package is intentionally small — and intentionally maintained.
+
+Small primitives power larger systems.
+Support long-term stability by sponsoring Flex Development.
 
 ## Related
 
@@ -96,6 +112,8 @@ community you agree to abide by its terms.
 [esmsh]: https://esm.sh
 
 [fsm-tokenizer]: https://github.com/flex-development/fsm-tokenizer
+
+[semver]: https://semver.org
 
 [typescript]: https://www.typescriptlang.org
 
