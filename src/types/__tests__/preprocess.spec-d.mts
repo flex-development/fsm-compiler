@@ -4,7 +4,7 @@
  */
 
 import type TestSubject from '#types/preprocess'
-import type { CompileContext, Root } from '@flex-development/fsm-compiler'
+import type { CompileContext, Tree } from '@flex-development/fsm-compiler'
 import type { Event } from '@flex-development/fsm-tokenizer'
 
 describe('unit-d:types/Preprocess', () => {
@@ -14,7 +14,7 @@ describe('unit-d:types/Preprocess', () => {
 
   describe('parameters', () => {
     it('should be callable with [Event[], Tree]', () => {
-      expectTypeOf<TestSubject>().parameters.toEqualTypeOf<[Event[], Root]>()
+      expectTypeOf<TestSubject>().parameters.toEqualTypeOf<[Event[], Tree]>()
     })
   })
 

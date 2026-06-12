@@ -40,6 +40,7 @@ exports[`unit:createCompiler > should create compile context 1`] = `
   "exit": [Function exit],
   "preprocess": undefined,
   "resume": [Function resume],
+  "sliceSerialize": [Function sliceSerialize],
   "stack": [],
   "tokenStack": [],
 }

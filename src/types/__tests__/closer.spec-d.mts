@@ -12,7 +12,7 @@ describe('unit-d:types/Closer', () => {
   })
 
   describe('parameters', () => {
-    it('should be callable with [(Handle | null | undefined)?]', () => {
+    it('should be callable with [(Handle<T> | null | undefined)?]', () => {
       expectTypeOf<TestSubject>()
         .parameters
         .toEqualTypeOf<[(Handle | null | undefined)?]>()
@@ -20,7 +20,7 @@ describe('unit-d:types/Closer', () => {
   })
 
   describe('returns', () => {
-    it('should return Handle', () => {
+    it('should return Handle<T>', () => {
       expectTypeOf<TestSubject>().returns.toEqualTypeOf<Handle>()
     })
   })

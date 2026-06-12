@@ -12,7 +12,7 @@ describe('unit-d:types/Opener', () => {
   })
 
   describe('parameters', () => {
-    it('should be callable with [CreateNode, (Handle | null | undefined)?]', () => {
+    it('should be callable with [CreateNode<N, T>, (Handle<T> | null | undefined)?]', () => {
       expectTypeOf<TestSubject>()
         .parameters
         .toEqualTypeOf<[CreateNode, (Handle | null | undefined)?]>()
@@ -20,7 +20,7 @@ describe('unit-d:types/Opener', () => {
   })
 
   describe('returns', () => {
-    it('should return Handle', () => {
+    it('should return Handle<T>', () => {
       expectTypeOf<TestSubject>().returns.toEqualTypeOf<Handle>()
     })
   })

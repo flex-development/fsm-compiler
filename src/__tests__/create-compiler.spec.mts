@@ -22,10 +22,10 @@ import type {
   Opener,
   Options,
   Preprocess,
-  Root,
   SerializeNode,
   TakeExtension,
-  Transform
+  Transform,
+  Tree
 } from '@flex-development/fsm-compiler'
 import {
   chars,
@@ -181,12 +181,10 @@ describe('unit:createCompiler', () => {
       let transform1: Mock<Transform>
       let transform2: Mock<Transform>
       let transform3: Mock<Transform>
-      let tree: Root
+      let tree: Tree
 
       beforeAll(() => {
-        sliceSerialize = vi.fn(() => chars.empty).mockName('sliceSerialize')
-
-        tokenizer = { sliceSerialize } as unknown as TokenizeContext
+        tokenizer = {} as unknown as TokenizeContext
         tokenizer.events = mockEvents(tokenizer)
 
         subject = testSubject({
@@ -247,7 +245,12 @@ describe('unit:createCompiler', () => {
            * @return {undefined}
            */
           finalizeContext(this: void, context: CompileContext): undefined {
-            context.preprocess = preprocess = vi.fn().mockName('preprocess')
+            preprocess = vi.fn().mockName('preprocess')
+            sliceSerialize = vi.fn(() => chars.empty).mockName('sliceSerialize')
+
+            context.preprocess = preprocess
+            context.sliceSerialize = sliceSerialize
+
             return void context
           }
         })
@@ -255,7 +258,7 @@ describe('unit:createCompiler', () => {
 
       beforeEach(() => {
         subject.compile(tokenizer.events)
-        tree = subject.stack[0] as Root
+        tree = subject.stack[0] as Tree
       })
 
       it('should apply tree transforms in order', () => {
@@ -278,6 +281,10 @@ describe('unit:createCompiler', () => {
         expect(preprocess.mock.contexts[0]).eq(subject)
         expect(preprocess).toHaveBeenCalledBefore(bracketExpression)
         expect(preprocess).toHaveBeenCalledBefore(text)
+      })
+
+      it('should use custom serializer', () => {
+        expect(subject.sliceSerialize).not.to.eq(tokenizer.sliceSerialize)
       })
     })
   })
@@ -431,6 +438,12 @@ describe('unit:createCompiler', () => {
         // Expect
         expect(serializeNode).toHaveBeenCalledExactlyOnceWith(node)
       })
+    })
+  })
+
+  describe('#sliceSerialize', () => {
+    it('should return empty string', () => {
+      expect(testSubject().sliceSerialize(tokens.succ)).to.eq(chars.empty)
     })
   })
 })

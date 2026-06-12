@@ -4,7 +4,7 @@
  */
 
 import type TestSubject from '#types/transform'
-import type { Root } from '@flex-development/fsm-compiler'
+import type { Tree } from '@flex-development/fsm-compiler'
 import type { Nilable } from '@flex-development/tutils'
 
 describe('unit-d:types/Transform', () => {
@@ -14,13 +14,13 @@ describe('unit-d:types/Transform', () => {
 
   describe('parameters', () => {
     it('should be callable with [Tree]', () => {
-      expectTypeOf<TestSubject>().parameters.toEqualTypeOf<[Root]>()
+      expectTypeOf<TestSubject>().parameters.toEqualTypeOf<[Tree]>()
     })
   })
 
   describe('returns', () => {
     it('should return Tree | null | undefined', () => {
-      expectTypeOf<TestSubject>().returns.toEqualTypeOf<Nilable<Root>>()
+      expectTypeOf<TestSubject>().returns.toEqualTypeOf<Nilable<Tree>>()
     })
   })
 })

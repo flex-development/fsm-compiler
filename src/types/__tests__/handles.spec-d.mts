@@ -9,9 +9,9 @@ import type { TokenType } from '@flex-development/fsm-tokenizer'
 import type { Nilable } from '@flex-development/tutils'
 
 describe('unit-d:types/Handles', () => {
-  it('should equal Partial<Record<TokenType, Handle | null | undefined>>', () => {
+  it('should equal Partial<Record<TokenType, Handle<any> | null | undefined>>', () => {
     // Arrange
-    type Expect = Partial<Record<TokenType, Nilable<Handle>>>
+    type Expect = Partial<Record<TokenType, Nilable<Handle<any>>>>
 
     // Expect
     expectTypeOf<TestSubject>().toEqualTypeOf<Expect>()

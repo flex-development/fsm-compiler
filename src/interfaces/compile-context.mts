@@ -5,8 +5,8 @@
 
 import type {
   Buffer,
+  Compile,
   CompileData,
-  Compiler,
   Config,
   Enter,
   Exit,
@@ -15,7 +15,10 @@ import type {
   Resume,
   StackedToken
 } from '@flex-development/fsm-compiler'
-import type { SliceSerialize } from '@flex-development/fsm-tokenizer'
+import type {
+  SliceSerialize,
+  TokenizeContext
+} from '@flex-development/fsm-tokenizer'
 
 /**
  * The event compilation context.
@@ -31,9 +34,9 @@ interface CompileContext {
   /**
    * Turn events into a syntax tree.
    *
-   * @see {@linkcode Compiler}
+   * @see {@linkcode Compile}
    */
-  compile: Compiler
+  compile: Compile
 
   /**
    * The compiler configuration.
@@ -80,9 +83,14 @@ interface CompileContext {
   /**
    * Get the text spanning the specified range.
    *
+   * > 👉 **Note**: Returns an empty string by default.
+   * > If a custom serializer has not been defined prior to event compilation,
+   * > a tokenizer's serializer ({@linkcode TokenizeContext.sliceSerialize})
+   * > will be assigned to this field.
+   *
    * @see {@linkcode SliceSerialize}
    */
-  sliceSerialize?: SliceSerialize | null | undefined
+  sliceSerialize: SliceSerialize
 
   /**
    * The node stack.

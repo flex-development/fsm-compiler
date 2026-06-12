@@ -13,17 +13,20 @@ import type {
   OnEnterError,
   OnExitError,
   Options,
-  Root,
   StackedToken,
   TakeExtension,
-  Transform
+  Transform,
+  Tree
 } from '@flex-development/fsm-compiler'
 import {
   chars,
   type Event,
   type List,
   type Position,
-  type Token
+  type Range,
+  type SerializeOptions,
+  type Token,
+  type TokenType
 } from '@flex-development/fsm-tokenizer'
 import { u } from '@flex-development/unist-util-builder'
 import {
@@ -67,6 +70,7 @@ function createCompiler(
     enter,
     exit,
     resume,
+    sliceSerialize,
     stack: [],
     tokenStack: []
   }
@@ -83,6 +87,24 @@ function createCompiler(
   function buffer(this: CompileContext): undefined {
     return void this.stack.push(u('fragment', []))
   }
+
+  /**
+   * Create an exit handle.
+   *
+   * @template {TokenType} T
+   *  The corresponding token type
+   *
+   * @this {void}
+   *
+   * @param {Handle<T> | null | undefined} [pre]
+   *  The handle to run before exiting a node
+   * @return {Handle<T>}
+   *  The exit handle
+   */
+  function closer<T extends TokenType>(
+    this: void,
+    pre?: Handle<T> | null | undefined
+  ): Handle<T>
 
   /**
    * Create an exit handle.
@@ -112,32 +134,14 @@ function createCompiler(
   /**
    * Turn events into a syntax tree.
    *
-   * @template {Root} [Tree]
-   *  The syntax tree
-   *
-   * @this {void}
-   *
-   * @param {Event[] | null | undefined} [events]
-   *  The list of events
-   * @return {Tree}
-   *  The syntax tree
-   */
-  function compile<Tree extends Root = Root>(
-    this: void,
-    events?: Event[] | null | undefined
-  ): Tree
-
-  /**
-   * Turn events into a syntax tree.
-   *
    * @this {void}
    *
    * @param {Event[] | null | undefined} events
    *  The list of events
-   * @return {Root}
+   * @return {Tree}
    *  The syntax tree
    */
-  function compile(this: void, events?: Event[] | null | undefined): Root {
+  function compile(this: void, events?: Event[] | null | undefined): Tree {
     ok(options, 'expected `options`')
     events ??= []
 
@@ -151,9 +155,9 @@ function createCompiler(
     /**
      * The syntax tree.
      *
-     * @var {Root} tree
+     * @var {Tree} tree
      */
-    let tree: Root = u('root', {
+    let tree: Tree = u('root', {
       children: [],
       position: { end: point(options.from), start: point(options.from) }
     })
@@ -161,16 +165,24 @@ function createCompiler(
     // push tree onto the stack.
     context.stack.push(tree)
 
+    // prepare to use `sliceSerialize` from tokenizers.
+    if (context.sliceSerialize === sliceSerialize) {
+      Reflect.deleteProperty(context, 'sliceSerialize')
+    }
+
     // preprocess events before compilation.
     context.preprocess?.call(context, events, tree)
 
     // call token handlers.
     while (++index < events.length) {
       ok(events[index], 'expected `events[index]`')
-      const [event, token, tokenizer] = events[index]!
+      const [event, token, { sliceSerialize }] = events[index]!
 
-      // handle event token.
-      context.sliceSerialize ??= tokenizer.sliceSerialize
+      // use serializer from tokenizer.
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      context.sliceSerialize ??= sliceSerialize
+
+      // call token handler.
       context.config[event][token.type]?.call(context, token)
     }
 
@@ -332,6 +344,29 @@ function createCompiler(
   /**
    * Create an enter handle.
    *
+   * @template {Node} N
+   *  The node to create
+   * @template {TokenType} T
+   *  The corresponding token type
+   *
+   * @this {void}
+   *
+   * @param {CreateNode<N, T>} node
+   *  The node factory
+   * @param {Handle<T> | null | undefined} [and]
+   *  The handle to run after entering the created node
+   * @return {Handle<T>}
+   *  The enter handle
+   */
+  function opener<N extends Node, T extends TokenType>(
+    this: void,
+    node: CreateNode<N, T>,
+    and?: Handle<T> | null | undefined
+  ): Handle<T>
+
+  /**
+   * Create an enter handle.
+   *
    * @this {void}
    *
    * @param {CreateNode} node
@@ -384,6 +419,26 @@ function createCompiler(
     if (!options.serializeNode) return node ? String(node) : undefined
 
     return options.serializeNode(node)
+  }
+
+  /**
+   * Get the text spanning `range`.
+   *
+   * @this {void}
+   *
+   * @param {Range} range
+   *  The slice position
+   * @param {SerializeOptions | boolean | null | undefined} [options]
+   *  Options for serializing or whether to expand tabs
+   * @return {string}
+   *  The serialized slice
+   */
+  function sliceSerialize(
+    this: void,
+    range: Range,
+    options?: SerializeOptions | boolean | null | undefined
+  ): string {
+    return void range, void options, chars.empty
   }
 
   /**

@@ -3,27 +3,35 @@
  * @module fsm-compiler/types/Opener
  */
 
-import type { CreateNode, Handle } from '@flex-development/fsm-compiler'
+import type { CreateNode, Handle, Node } from '@flex-development/fsm-compiler'
+import type { TokenType } from '@flex-development/fsm-tokenizer'
 
 /**
  * Create an enter handle.
  *
- * @see {@linkcode Handle}
  * @see {@linkcode CreateNode}
+ * @see {@linkcode Handle}
+ * @see {@linkcode Node}
+ * @see {@linkcode TokenType}
+ *
+ * @template {Node} N
+ *  The node to create
+ * @template {TokenType} T
+ *  The corresponding token type
  *
  * @this {void}
  *
- * @param {CreateNode} create
+ * @param {CreateNode<N, T>} node
  *  The node factory
- * @param {Handle | null | undefined} [and]
+ * @param {Handle<T> | null | undefined} [and]
  *  The handle to run after entering the created node
- * @return {Handle}
+ * @return {Handle<T>}
  *  The enter handle
  */
-type Opener = (
+type Opener = <N extends Node, T extends TokenType>(
   this: void,
-  node: CreateNode,
-  and?: Handle | null | undefined
-) => Handle
+  node: CreateNode<N, T>,
+  and?: Handle<T> | null | undefined
+) => Handle<T>
 
 export type { Opener as default }

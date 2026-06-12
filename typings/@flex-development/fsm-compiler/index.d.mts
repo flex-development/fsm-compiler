@@ -1,4 +1,4 @@
-import type {} from '@flex-development/fsm-compiler'
+import type { Root } from '@flex-development/fsm-compiler'
 import type unist from 'unist'
 
 declare module '@flex-development/fsm-compiler' {
@@ -10,5 +10,6 @@ declare module '@flex-development/fsm-compiler' {
     literal: unist.Literal
     node: unist.Node
     parent: unist.Parent
+    root: Root
   }
 }

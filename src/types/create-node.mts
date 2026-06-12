@@ -12,10 +12,10 @@ import type { Token, TokenType } from '@flex-development/fsm-tokenizer'
  * @see {@linkcode Node}
  * @see {@linkcode Token}
  *
- * @template {TokenType} [T]
- *  The token type
  * @template {Node} [N]
  *  The new node
+ * @template {TokenType} [T]
+ *  The token type
  *
  * @this {void}
  *
@@ -25,8 +25,8 @@ import type { Token, TokenType } from '@flex-development/fsm-tokenizer'
  *  The new node
  */
 type CreateNode<
-  T extends TokenType = TokenType,
-  N extends Node = Node
+  N extends Node = Node,
+  T extends TokenType = TokenType
 > = (this: void, token: Token<T>) => N
 
 export type { CreateNode as default }

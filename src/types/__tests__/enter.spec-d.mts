@@ -17,12 +17,10 @@ describe('unit-d:types/Enter', () => {
   })
 
   describe('parameters', () => {
-    it('should be callable with [N, Token<T>, (OnEnterError | null | undefined)?]', () => {
-      // Arrange
-      type Expect = [Node, Token, (OnEnterError | null | undefined)?]
-
-      // Expect
-      expectTypeOf<TestSubject>().parameters.toEqualTypeOf<Expect>()
+    it('should be callable with [Node, Token, (OnEnterError | null | undefined)?]', () => {
+      expectTypeOf<TestSubject>()
+        .parameters
+        .toEqualTypeOf<[Node, Token, (OnEnterError | null | undefined)?]>()
     })
   })
 

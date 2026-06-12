@@ -5,7 +5,7 @@
 
 import tokens from '#fixtures/tokens'
 import testSubject from '#internal/position-tree'
-import type { Root } from '@flex-development/fsm-compiler'
+import type { Tree } from '@flex-development/fsm-compiler'
 import { ev, type Token } from '@flex-development/fsm-tokenizer'
 import { u } from '@flex-development/unist-util-builder'
 import type { Position } from 'unist'
@@ -21,7 +21,7 @@ describe('unit:internal/positionTree', () => {
 
   it('should do nothing if `events` is empty', () => {
     // Arrange
-    const tree: Root = u('root', [])
+    const tree: Tree = u('root', [])
 
     // Act
     testSubject(tree, [])
@@ -30,7 +30,7 @@ describe('unit:internal/positionTree', () => {
     expect(tree).not.to.have.property('position')
   })
 
-  it.each<[Root]>([
+  it.each<[Tree]>([
     [u('root', [])],
     [u('root', { children: [], position: {} })]
   ])('should position `tree` based on `events` (%#)', tree => {

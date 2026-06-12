@@ -5,7 +5,7 @@
 
 export type { default as Buffer } from './buffer.mts'
 export type { default as Closer } from './closer.mts'
-export type { default as Compiler } from './compiler.mts'
+export type { default as Compile } from './compile.mts'
 export type { default as CreateExtensions } from './create-extensions.mts'
 export type { default as CreateNode } from './create-node.mts'
 export type { default as Enter } from './enter.mts'
@@ -23,3 +23,4 @@ export type { default as SerializeNode } from './serialize-node.mts'
 export type { default as StackedToken } from './stacked-token.mts'
 export type { default as TakeExtension } from './take-extension.mts'
 export type { default as Transform } from './transform.mts'
+export type { default as Tree } from './tree.mts'

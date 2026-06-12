@@ -3,7 +3,7 @@
  * @module fsm-compiler/types/Preprocess
  */
 
-import type { CompileContext, Root } from '@flex-development/fsm-compiler'
+import type { CompileContext, Tree } from '@flex-development/fsm-compiler'
 import type { Event } from '@flex-development/fsm-tokenizer'
 
 /**
@@ -11,10 +11,7 @@ import type { Event } from '@flex-development/fsm-tokenizer'
  *
  * @see {@linkcode CompileContext}
  * @see {@linkcode Event}
- * @see {@linkcode Root}
- *
- * @template {Root} [Tree]
- *  The syntax tree
+ * @see {@linkcode Tree}
  *
  * @this {CompileContext}
  *
@@ -24,7 +21,7 @@ import type { Event } from '@flex-development/fsm-tokenizer'
  *  The current syntax tree
  * @return {null | undefined}
  */
-type Preprocess<Tree extends Root = Root> = (
+type Preprocess = (
   this: CompileContext,
   events: Event[],
   tree: Tree

@@ -6,8 +6,8 @@
 import type TestSubject from '#interfaces/compile-context'
 import type {
   Buffer,
+  Compile,
   CompileData,
-  Compiler,
   Config,
   Enter,
   Exit,
@@ -24,10 +24,10 @@ describe('unit-d:interfaces/CompileContext', () => {
     expectTypeOf<TestSubject>().toHaveProperty('buffer').toEqualTypeOf<Buffer>()
   })
 
-  it('should match [compile: Compiler]', () => {
+  it('should match [compile: Compile]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('compile')
-      .toEqualTypeOf<Compiler>()
+      .toEqualTypeOf<Compile>()
   })
 
   it('should match [config: Config]', () => {
@@ -58,10 +58,10 @@ describe('unit-d:interfaces/CompileContext', () => {
     expectTypeOf<TestSubject>().toHaveProperty('resume').toEqualTypeOf<Resume>()
   })
 
-  it('should match [sliceSerialize?: SliceSerialize | null | undefined]', () => {
+  it('should match [sliceSerialize: SliceSerialize]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('sliceSerialize')
-      .toEqualTypeOf<Nilable<SliceSerialize>>()
+      .toEqualTypeOf<SliceSerialize>()
   })
 
   it('should match [stack: Node[]]', () => {

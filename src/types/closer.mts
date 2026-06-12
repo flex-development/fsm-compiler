@@ -4,19 +4,27 @@
  */
 
 import type { Handle } from '@flex-development/fsm-compiler'
+import type { TokenType } from '@flex-development/fsm-tokenizer'
 
 /**
  * Create an exit handle.
  *
  * @see {@linkcode Handle}
+ * @see {@linkcode TokenType}
+ *
+ * @template {TokenType} T
+ *  The corresponding token type
  *
  * @this {void}
  *
- * @param {Handle | null | undefined} [before]
+ * @param {Handle<T> | null | undefined} [pre]
  *  The handle to run before exiting a node
- * @return {Handle}
+ * @return {Handle<T>}
  *  The exit handle
  */
-type Closer = (this: void, before?: Handle | null | undefined) => Handle
+type Closer = <T extends TokenType>(
+  this: void,
+  pre?: Handle<T> | null | undefined
+) => Handle<T>
 
 export type { Closer as default }

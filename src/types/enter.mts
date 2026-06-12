@@ -8,7 +8,7 @@ import type {
   Node,
   OnEnterError
 } from '@flex-development/fsm-compiler'
-import type { Token, TokenType } from '@flex-development/fsm-tokenizer'
+import type { Token } from '@flex-development/fsm-tokenizer'
 
 /**
  * Enter a node.
@@ -16,28 +16,22 @@ import type { Token, TokenType } from '@flex-development/fsm-tokenizer'
  * @see {@linkcode CompileContext}
  * @see {@linkcode Node}
  * @see {@linkcode OnEnterError}
- * @see {@linkcode TokenType}
  * @see {@linkcode Token}
- *
- * @template {Node} [N]
- *  The node to enter
- * @template {TokenType} [T]
- *  The corresponding token type
  *
  * @this {CompileContext}
  *
- * @param {N} node
+ * @param {Node} node
  *  The node to enter
- * @param {Token<T>} token
+ * @param {Token} token
  *  The corresponding token
  * @param {OnEnterError | null | undefined} [onError]
  *  Handle the case where another token is open, but closed by something else
  * @return {undefined}
  */
-type Enter<N extends Node = Node, T extends TokenType = TokenType> = (
+type Enter = (
   this: CompileContext,
-  node: N,
-  token: Token<T>,
+  node: Node,
+  token: Token,
   onError?: OnEnterError | null | undefined
 ) => undefined
 

@@ -3,31 +3,28 @@
  * @module fsm-compiler/internal/positionTree
  */
 
-import type { Root } from '@flex-development/fsm-compiler'
+import type { Tree } from '@flex-development/fsm-compiler'
 import type { Position, Token } from '@flex-development/fsm-tokenizer'
 import point from './point.mts'
 
 /**
  * Position a `tree` based on `events`.
  *
- * > 👉 **Note**: Does nothing if event list is empty.
+ * > 👉 **Note**: Does nothing if the event list is empty.
  *
  * @internal
  *
- * @template {Root} T
- *  The tree
- *
  * @this {void}
  *
- * @param {T} tree
+ * @param {Tree} tree
  *  The tree to position
  * @param {[unknown, Token, unknown?][]} events
  *  The list of events
  * @return {undefined}
  */
-function positionTree<T extends Root>(
+function positionTree(
   this: void,
-  tree: T,
+  tree: Tree,
   events: [unknown, Token, unknown?][]
 ): undefined {
   if (events.length) {
