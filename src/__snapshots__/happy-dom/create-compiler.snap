@@ -38,6 +38,11 @@ exports[`unit:createCompiler > should create compile context 1`] = `
   "data": {},
   "enter": [Function enter],
   "exit": [Function exit],
+  "from": {
+    "column": 1,
+    "line": 1,
+    "offset": 0,
+  },
   "preprocess": undefined,
   "resume": [Function resume],
   "sliceSerialize": [Function sliceSerialize],

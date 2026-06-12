@@ -16,7 +16,7 @@ import type {
   Resume,
   StackedToken
 } from '@flex-development/fsm-compiler'
-import type { SliceSerialize } from '@flex-development/fsm-tokenizer'
+import type { Point, SliceSerialize } from '@flex-development/fsm-tokenizer'
 import type { Nilable } from '@flex-development/tutils'
 
 describe('unit-d:interfaces/CompileContext', () => {
@@ -46,6 +46,10 @@ describe('unit-d:interfaces/CompileContext', () => {
 
   it('should match [exit: Exit]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('exit').toEqualTypeOf<Exit>()
+  })
+
+  it('should match [from: Point]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('from').toEqualTypeOf<Point>()
   })
 
   it('should match [preprocess?: Preprocess | null | undefined]', () => {

@@ -57,6 +57,8 @@ function createCompiler(
   this: void,
   options?: Options | null | undefined
 ): CompileContext {
+  options ??= {}
+
   /**
    * The event compilation context.
    *
@@ -69,13 +71,14 @@ function createCompiler(
     data: {},
     enter,
     exit,
+    from: point(options.from),
     resume,
     sliceSerialize,
     stack: [],
     tokenStack: []
   }
 
-  return options ??= {}, configure()
+  return configure()
 
   /**
    * Capture some of the output data.
@@ -159,7 +162,7 @@ function createCompiler(
      */
     let tree: Tree = u('root', {
       children: [],
-      position: { end: point(options.from), start: point(options.from) }
+      position: { end: point(context.from), start: point(context.from) }
     })
 
     // push tree onto the stack.

@@ -16,6 +16,7 @@ import type {
   StackedToken
 } from '@flex-development/fsm-compiler'
 import type {
+  Point,
   SliceSerialize,
   TokenizeContext
 } from '@flex-development/fsm-tokenizer'
@@ -65,6 +66,13 @@ interface CompileContext {
    * @see {@linkcode Exit}
    */
   exit: Exit
+
+  /**
+   * The point before the first character in the content.
+   *
+   * @see {@linkcode Point}
+   */
+  from: Point
 
   /**
    * Preprocess events before turning them into a syntax tree.
