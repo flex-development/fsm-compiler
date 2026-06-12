@@ -1,3 +1,13 @@
+## [1.0.0-alpha.4](https://github.com/flex-development/fsm-compiler/compare/1.0.0-alpha.3...1.0.0-alpha.4) (2026-06-11)
+
+### :pencil: Documentation
+
+- [[`ace80a9`](https://github.com/flex-development/fsm-compiler/commit/ace80a978fc6afb854c04ef499d0165c164bd15a)] version, sponsor
+
+### :sparkles: Features
+
+- [[`71f2c6d`](https://github.com/flex-development/fsm-compiler/commit/71f2c6db0a745632d8952aa169064e70d794176c)] **ts:** `CompileContext#from`
+
 ## [1.0.0-alpha.3](https://github.com/flex-development/fsm-compiler/compare/1.0.0-alpha.2...1.0.0-alpha.3) (2026-06-11)
 
 ### :house_with_garden: Housekeeping
@@ -24,6 +34,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`1dbbbdb`](https://github.com/flex-development/fsm-compiler/commit/1dbbbdb4197bbf31530d57e3a8c67d9958deb543)] initial commit
+
 
 
 
