@@ -1,3 +1,13 @@
+## [1.0.0-alpha.3](https://github.com/flex-development/fsm-compiler/compare/1.0.0-alpha.2...1.0.0-alpha.3) (2026-06-11)
+
+### :house_with_garden: Housekeeping
+
+- [[`9005284`](https://github.com/flex-development/fsm-compiler/commit/9005284a20c09058304fc6421fa9d762b3846a55)] add `CHANGELOG` entry for `1.0.0-alpha.2`
+
+### :mechanical_arm: Refactors
+
+- [[`45a8f8a`](https://github.com/flex-development/fsm-compiler/commit/45a8f8a9f6acb3474ba313952dc1b7a4f8bd4737)] **ts:** api improvements
+
 ## [1.0.0-alpha.2](https://github.com/flex-development/fsm-tokenizer/compare/1.0.0-alpha.1...1.0.0-alpha.2) (2026-06-11)
 
 ## 1.0.0-alpha.1 (2026-06-11)
@@ -14,6 +24,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`1dbbbdb`](https://github.com/flex-development/fsm-compiler/commit/1dbbbdb4197bbf31530d57e3a8c67d9958deb543)] initial commit
+
 
 
 
