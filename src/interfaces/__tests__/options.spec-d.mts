@@ -3,7 +3,6 @@
  * @module fsm-compiler/interfaces/tests/unit-d/Options
  */
 
-import type TestSubject from '#interfaces/options'
 import type {
   Extensions,
   FinalizeContext
@@ -15,6 +14,7 @@ import type {
 } from '@flex-development/fsm/ast'
 import type { Point } from '@flex-development/fsm/parse'
 import type { Nilable } from '@flex-development/tutils'
+import type TestSubject from '../options.mts'
 
 describe('unit-d:interfaces/Options', () => {
   it('should match [extensions?: Extensions | null | undefined]', () => {

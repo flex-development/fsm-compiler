@@ -3,9 +3,9 @@
  * @module fsm-compiler/types/tests/unit-d/Extensions
  */
 
-import type TestSubject from '#types/extensions'
 import type { CreateExtensions, Extension } from '@flex-development/fsm/ast'
 import type { List } from '@flex-development/fsm/core'
+import type TestSubject from '../extensions.mts'
 
 describe('unit-d:types/Extensions', () => {
   it('should allow CreateExtensions', () => {
