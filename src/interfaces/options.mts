@@ -5,12 +5,14 @@
 
 import type {
   Extensions,
-  FinalizeContext,
+  FinalizeContext
+} from '@flex-development/fsm-compiler'
+import type {
   Preprocess,
   SerializeNode,
   TakeExtension
-} from '@flex-development/fsm-compiler'
-import type { Point } from '@flex-development/fsm-tokenizer'
+} from '@flex-development/fsm/ast'
+import type { Point } from '@flex-development/fsm/parse'
 
 /**
  * Options for configuring an event compiler.

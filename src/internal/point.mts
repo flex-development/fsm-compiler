@@ -3,7 +3,7 @@
  * @module fsm-compiler/internal/point
  */
 
-import type { Point } from '@flex-development/fsm-tokenizer'
+import type { Point } from '@flex-development/fsm/parse'
 
 /**
  * Copy a point-like value.

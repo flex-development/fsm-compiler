@@ -3,8 +3,8 @@
  * @module fsm-compiler/internal/positionTree
  */
 
-import type { Tree } from '@flex-development/fsm-compiler'
-import type { Position, Token } from '@flex-development/fsm-tokenizer'
+import type { Tree } from '@flex-development/fsm/ast'
+import type { Position, Token } from '@flex-development/fsm/parse'
 import point from './point.mts'
 
 /**

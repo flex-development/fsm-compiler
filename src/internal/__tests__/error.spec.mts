@@ -11,8 +11,8 @@ import type {
   CompileContext,
   OnEnterError,
   OnExitError
-} from '@flex-development/fsm-compiler'
-import type { Token } from '@flex-development/fsm-tokenizer'
+} from '@flex-development/fsm/ast'
+import type { Token } from '@flex-development/fsm/parse'
 import { pick } from '@flex-development/tutils'
 import type { Mock } from 'vitest'
 

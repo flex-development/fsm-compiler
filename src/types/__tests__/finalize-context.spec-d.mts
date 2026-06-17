@@ -4,7 +4,8 @@
  */
 
 import type TestSubject from '#types/finalize-context'
-import type { CompileContext, Options } from '@flex-development/fsm-compiler'
+import type { Options } from '@flex-development/fsm-compiler'
+import type { CompileContext } from '@flex-development/fsm/ast'
 
 describe('unit-d:types/FinalizeContext', () => {
   it('should match [this: void]', () => {

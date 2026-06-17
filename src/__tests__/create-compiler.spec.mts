@@ -10,30 +10,32 @@ import positionTree from '#internal/position-tree'
 import mockEvents from '#tests/utils/mock-events'
 import thrower from '#tests/utils/thrower'
 import type {
+  FinalizeContext,
+  Options
+} from '@flex-development/fsm-compiler'
+import { chars } from '@flex-development/fsm-tokenizer'
+import type {
   Buffer,
   Closer,
   CompileContext,
   CreateNode,
   Extension,
-  FinalizeContext,
   Node,
   OnEnterError,
   OnExitError,
   Opener,
-  Options,
   Preprocess,
   SerializeNode,
   TakeExtension,
   Transform,
   Tree
-} from '@flex-development/fsm-compiler'
-import {
-  chars,
-  type List,
-  type SliceSerialize,
-  type Token,
-  type TokenizeContext
-} from '@flex-development/fsm-tokenizer'
+} from '@flex-development/fsm/ast'
+import type { List } from '@flex-development/fsm/core'
+import type {
+  SliceSerialize,
+  Token,
+  TokenizeContext
+} from '@flex-development/fsm/parse'
 import { pick } from '@flex-development/tutils'
 import { u } from '@flex-development/unist-util-builder'
 import type { Parent } from 'unist'

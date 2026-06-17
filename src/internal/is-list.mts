@@ -3,7 +3,7 @@
  * @module fsm-compiler/internal/isList
  */
 
-import type { List } from '@flex-development/fsm-tokenizer'
+import type { List } from '@flex-development/fsm/core'
 
 /**
  * Check if `value` is a list.

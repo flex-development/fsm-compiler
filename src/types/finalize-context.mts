@@ -3,7 +3,8 @@
  * @module fsm-compiler/types/FinalizeContext
  */
 
-import type { CompileContext, Options } from '@flex-development/fsm-compiler'
+import type { Options } from '@flex-development/fsm-compiler'
+import type { CompileContext } from '@flex-development/fsm/ast'
 
 /**
  * Finalize the compilation context.

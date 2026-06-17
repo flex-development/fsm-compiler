@@ -4,7 +4,7 @@
  */
 
 import tt from '#fixtures/tt'
-import type { Token } from '@flex-development/fsm-tokenizer'
+import type { Token } from '@flex-development/fsm/parse'
 
 /**
  * Record, where each key is a token type and each value is a token fixture.

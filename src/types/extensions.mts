@@ -3,11 +3,8 @@
  * @module fsm-compiler/types/Extensions
  */
 
-import type {
-  CreateExtensions,
-  Extension
-} from '@flex-development/fsm-compiler'
-import type { List } from '@flex-development/fsm-tokenizer'
+import type { CreateExtensions, Extension } from '@flex-development/fsm/ast'
+import type { List } from '@flex-development/fsm/core'
 
 /**
  * An extension, a list of extensions, or a factory function.

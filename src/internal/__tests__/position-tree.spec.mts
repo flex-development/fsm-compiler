@@ -5,8 +5,9 @@
 
 import tokens from '#fixtures/tokens'
 import testSubject from '#internal/position-tree'
-import type { Tree } from '@flex-development/fsm-compiler'
-import { ev, type Token } from '@flex-development/fsm-tokenizer'
+import { ev } from '@flex-development/fsm-tokenizer'
+import type { Tree } from '@flex-development/fsm/ast'
+import type { Token } from '@flex-development/fsm/parse'
 import { u } from '@flex-development/unist-util-builder'
 import type { Position } from 'unist'
 

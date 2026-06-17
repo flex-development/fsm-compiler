@@ -106,6 +106,7 @@
     "typecheck:ui": "yarn test:ui --typecheck --mode=typecheck"
   },
   "dependencies": {
+    "@flex-development/fsm": "flex-development/fsm#commit=566fbcd8394301afc14115eee8377a560a6f1c84",
     "@flex-development/fsm-tokenizer": "1.0.0-alpha.9",
     "@flex-development/unist-util-builder": "2.0.0",
     "@flex-development/unist-util-stringify-position": "1.0.1",

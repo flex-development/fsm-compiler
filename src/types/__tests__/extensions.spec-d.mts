@@ -4,11 +4,8 @@
  */
 
 import type TestSubject from '#types/extensions'
-import type {
-  CreateExtensions,
-  Extension
-} from '@flex-development/fsm-compiler'
-import type { List } from '@flex-development/fsm-tokenizer'
+import type { CreateExtensions, Extension } from '@flex-development/fsm/ast'
+import type { List } from '@flex-development/fsm/core'
 
 describe('unit-d:types/Extensions', () => {
   it('should allow CreateExtensions', () => {

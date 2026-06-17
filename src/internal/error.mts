@@ -3,12 +3,13 @@
  * @module fsm-compiler/internal/error
  */
 
+import { chars } from '@flex-development/fsm-tokenizer'
 import type {
   CompileContext,
   OnEnterError,
   OnExitError
-} from '@flex-development/fsm-compiler'
-import { chars, type Token } from '@flex-development/fsm-tokenizer'
+} from '@flex-development/fsm/ast'
+import type { Token } from '@flex-development/fsm/parse'
 import {
   stringifyPosition
 } from '@flex-development/unist-util-stringify-position'

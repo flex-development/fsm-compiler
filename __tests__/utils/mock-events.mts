@@ -4,11 +4,8 @@
  */
 
 import tt from '#fixtures/tt'
-import {
-  ev,
-  type Event,
-  type TokenizeContext
-} from '@flex-development/fsm-tokenizer'
+import { ev } from '@flex-development/fsm-tokenizer'
+import type { Event, TokenizeContext } from '@flex-development/fsm/parse'
 
 export default mockEvents
 

@@ -3,31 +3,30 @@
  * @module fsm-compiler/createCompiler
  */
 
+import type { Extensions, Options } from '@flex-development/fsm-compiler'
+import { chars } from '@flex-development/fsm-tokenizer'
 import type {
   CompileContext,
   CreateNode,
   Extension,
-  Extensions,
   Handle,
   Node,
   OnEnterError,
   OnExitError,
-  Options,
   StackedToken,
   TakeExtension,
   Transform,
   Tree
-} from '@flex-development/fsm-compiler'
-import {
-  chars,
-  type Event,
-  type List,
-  type Position,
-  type Range,
-  type SerializeOptions,
-  type Token,
-  type TokenType
-} from '@flex-development/fsm-tokenizer'
+} from '@flex-development/fsm/ast'
+import type { List } from '@flex-development/fsm/core'
+import type {
+  Event,
+  Position,
+  Range,
+  SerializeOptions,
+  Token,
+  TokenType
+} from '@flex-development/fsm/parse'
 import { u } from '@flex-development/unist-util-builder'
 import {
   stringifyPosition
