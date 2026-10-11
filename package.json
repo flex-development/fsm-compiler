@@ -87,7 +87,7 @@
     "prepublishOnly": "toggle-scripts -prepack",
     "release": "bash ./scripts/release.sh",
     "remark": "remark .",
-    "test": "yarn clean:build; vitest run",
+    "test": "yarn clean:build; NODE_NO_WARNINGS=1 vitest run",
     "test:cov": "yarn test --coverage",
     "test:cov:reports": "yarn test:cov --merge-reports --mode=reports",
     "test:cov:ui": "yarn test:ui --coverage",
@@ -98,7 +98,7 @@
     "typecheck:ui": "yarn test:ui --typecheck --mode=typecheck"
   },
   "dependencies": {
-    "@flex-development/mark": "1.0.0-alpha.8",
+    "@flex-development/mark": "1.0.0-alpha.9",
     "@flex-development/mark-util-symbol": "3.1.0",
     "@flex-development/unist-util-builder": "2.0.0",
     "@flex-development/unist-util-stringify-position": "1.0.1",

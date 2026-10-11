@@ -31,6 +31,10 @@ exports[`unit:createCompiler > should create compile context 1`] = `
   "buffer": [Function buffer],
   "compile": [Function compile],
   "config": {
+    "afterEnter": [],
+    "afterExit": [],
+    "beforeEnter": [],
+    "beforeExit": [],
     "enter": {},
     "exit": {},
     "transforms": [],
@@ -53,6 +57,10 @@ exports[`unit:createCompiler > should create compile context 1`] = `
 
 exports[`unit:createCompiler > should merge extensions into \`config\` (0) 1`] = `
 {
+  "afterEnter": [],
+  "afterExit": [],
+  "beforeEnter": [],
+  "beforeExit": [],
   "enter": {},
   "exit": {},
   "transforms": [],
@@ -61,6 +69,18 @@ exports[`unit:createCompiler > should merge extensions into \`config\` (0) 1`] =
 
 exports[`unit:createCompiler > should merge extensions into \`config\` (1) 1`] = `
 {
+  "afterEnter": [
+    [MockFunction],
+  ],
+  "afterExit": [
+    [MockFunction],
+  ],
+  "beforeEnter": [
+    [MockFunction],
+  ],
+  "beforeExit": [
+    [MockFunction],
+  ],
   "enter": {
     "eoc": [MockFunction],
     "succ": [MockFunction],

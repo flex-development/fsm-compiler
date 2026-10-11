@@ -4,7 +4,7 @@
  */
 
 import type { Extensions, Options } from '@flex-development/mark-compiler'
-import { chars } from '@flex-development/mark-util-symbol'
+import { chars, ev } from '@flex-development/mark-util-symbol'
 import type {
   CompileContext,
   Context,
@@ -68,7 +68,15 @@ function createCompiler(
   const context: CompileContext = {
     buffer,
     compile,
-    config: { enter: {}, exit: {}, transforms: [] },
+    config: {
+      afterEnter: [],
+      afterExit: [],
+      beforeEnter: [],
+      beforeExit: [],
+      enter: {},
+      exit: {},
+      transforms: []
+    },
     data: {},
     enter,
     exit,
@@ -90,6 +98,41 @@ function createCompiler(
    */
   function buffer(this: CompileContext): undefined {
     return void this.stack.push(u('fragment', []))
+  }
+
+  /**
+   * Call token `listeners`.
+   *
+   * @this {void}
+   *
+   * @param {ReadonlyArray<Handle>} listeners
+   *  The list of listeners to call
+   * @param {CompileContext} context
+   *  The event compilation context
+   * @param {Token} token
+   *  The current token
+   * @return {undefined}
+   */
+  function callListeners(
+    this: void,
+    listeners: readonly Handle[],
+    context: CompileContext,
+    token: Token
+  ): undefined {
+    /**
+     * The index of the current listener.
+     *
+     * @var {number} index
+     */
+    let index: number = -1
+
+    // call listeners in list order.
+    while (++index < listeners.length) {
+      ok(listeners[index], 'expected `listeners[index]`')
+      listeners[index]!.call(context, token)
+    }
+
+    return void listeners
   }
 
   /**
@@ -185,8 +228,22 @@ function createCompiler(
       // use serializer from tokenizer.
       context.sliceSerialize = sliceSerialize
 
-      // call token handler.
+      // call before hooks.
+      if (event === ev.enter) {
+        callListeners(context.config.beforeEnter, context, token)
+      } else {
+        callListeners(context.config.beforeExit, context, token)
+      }
+
+      // call the token handler.
       context.config[event][token.type]?.call(context, token)
+
+      // call after hooks.
+      if (event === ev.exit) {
+        callListeners(context.config.afterExit, context, token)
+      } else {
+        callListeners(context.config.afterEnter, context, token)
+      }
     }
 
     // handle tokens still being open.
@@ -495,20 +552,29 @@ function createCompiler(
 
       for (field in extension) {
         if (Object.hasOwnProperty.call(extension, field)) {
+          /**
+           * The incoming extension field value.
+           *
+           * @var {unknown} right
+           */
+          let right: unknown
+
           switch (field) {
+            case 'afterEnter':
+            case 'afterExit':
+            case 'beforeEnter':
+            case 'beforeExit':
+              right = extension[field]
+              if (right && !isList(right)) right = [right]
+              if (right) context.config[field].push(...right as List<Handle>)
+              break
             case 'enter':
             case 'exit':
               Object.assign(context.config[field], extension[field])
               break
             case 'transforms':
-              /**
-               * The list of tree transforms to apply.
-               *
-               * @const {List<Transform> | null | undefined} tt
-               */
-              const tt: List<Transform> | null | undefined = extension[field]
-
-              if (tt) context.config[field].push(...tt)
+              right = extension[field]
+              if (right) context.config[field].push(...right as List<Transform>)
               break
             default:
               take?.(context.config, extension, field)

@@ -1888,7 +1888,7 @@ __metadata:
     "@flex-development/export-regex": "npm:2.0.0"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/import-regex": "npm:3.0.0"
-    "@flex-development/mark": "npm:1.0.0-alpha.8"
+    "@flex-development/mark": "npm:1.0.0-alpha.9"
     "@flex-development/mark-util-symbol": "npm:3.1.0"
     "@flex-development/pathe": "npm:4.0.2"
     "@flex-development/remark-preset": "npm:1.0.0"
@@ -1945,13 +1945,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/mark@npm:1.0.0-alpha.8":
-  version: 1.0.0-alpha.8
-  resolution: "@flex-development/mark@npm:1.0.0-alpha.8"
+"@flex-development/mark@npm:1.0.0-alpha.9":
+  version: 1.0.0-alpha.9
+  resolution: "@flex-development/mark@npm:1.0.0-alpha.9"
   dependencies:
     "@flex-development/unist-util-types": "npm:1.6.1"
     "@types/unist": "npm:3.0.3"
-  checksum: 10/009a5e491d60ecbd775338336c9c72df947b37114a87139cb932c3db0dec42ef216878cb1e2bbae730ad8c1c72659bbd3269de49989b48c5d7dae4a5d9a83244
+  checksum: 10/990804f42cd310b55d5f2179acf4c98313432f0b93533fedfcecb3ed87dcc31f421014a428046435f13b5bbe3d156ac2daf000f815ce4530ebeabd0de1f3f08b
   languageName: node
   linkType: hard
 

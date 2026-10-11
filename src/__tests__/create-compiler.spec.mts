@@ -20,6 +20,7 @@ import type {
   CompileContext,
   CreateNode,
   Extension,
+  Handle,
   Node,
   OnEnterError,
   OnExitError,
@@ -111,6 +112,10 @@ describe('unit:createCompiler', () => {
   it.each<[extensions: Extension | List<Extension>]>([
     [
       {
+        afterEnter: null,
+        afterExit: null,
+        beforeEnter: null,
+        beforeExit: null,
         enter: null,
         exit: null,
         transforms: null
@@ -119,6 +124,8 @@ describe('unit:createCompiler', () => {
     [
       [
         {
+          afterEnter: vi.fn().mockName('afterEnter'),
+          beforeEnter: vi.fn().mockName('beforeEnter'),
           enter: { [tt.succ]: vi.fn().mockName('succEnter') },
           exit: { [tt.succ]: vi.fn().mockName('succExit') }
         },
@@ -127,6 +134,8 @@ describe('unit:createCompiler', () => {
           exit: { [tt.fail]: vi.fn().mockName('failExit') }
         }),
         {
+          afterExit: vi.fn().mockName('afterExit'),
+          beforeExit: vi.fn().mockName('beforeExit'),
           enter: { [tt.eoc]: vi.fn().mockName('eocEnter') },
           exit: { [tt.eoc]: vi.fn().mockName('eocExit') },
           transforms: new Set([vi.fn().mockName('transform')])
@@ -183,7 +192,16 @@ describe('unit:createCompiler', () => {
     })
 
     describe('success', () => {
+      let afterEnter: Mock<Handle>
+      let afterExit2: Mock<Handle>
+      let afterExit: Mock<Handle>
+      let beforeEnter: Mock<Handle>
+      let beforeExit2: Mock<Handle>
+      let beforeExit: Mock<Handle>
       let bracketExpression: Mock<CreateNode>
+      let enterBracketExpression: Mock<Handle>
+      let exitBracketExpression: Mock<Handle>
+      let exitLiteral: Mock<Handle>
       let preprocess: Mock<Preprocess>
       let sliceSerialize: Mock<SliceSerialize>
       let subject: CompileContext
@@ -231,8 +249,20 @@ describe('unit:createCompiler', () => {
             transform2 = vi.fn().mockName('transform2')
             transform3 = vi.fn().mockName('transform3')
 
+            beforeEnter = vi.fn().mockName('beforeEnter')
+            beforeExit = vi.fn().mockName('beforeExit')
+            beforeExit2 = vi.fn().mockName('beforeExit2')
+
+            afterEnter = vi.fn().mockName('afterEnter')
+            afterExit = vi.fn().mockName('afterExit')
+            afterExit2 = vi.fn().mockName('afterExit2')
+
             return [
               {
+                afterEnter: afterEnter,
+                afterExit: [afterExit, afterExit2],
+                beforeEnter: beforeEnter,
+                beforeExit: new Set([beforeExit, beforeExit, beforeExit2]),
                 enter: {
                   [tt.bracketExpression]: opener(bracketExpression),
                   [tt.literal]: opener(text)
@@ -272,8 +302,46 @@ describe('unit:createCompiler', () => {
       })
 
       beforeEach(() => {
+        // @ts-expect-error handle is defined (2322).
+        enterBracketExpression =
+          // @ts-expect-error handle is defined (2322).
+          vi.spyOn(subject.config.enter, 'bracketExpression')
+
+        // @ts-expect-error handle is defined (2322).
+        exitBracketExpression =
+          // @ts-expect-error handle is defined (2322).
+          vi.spyOn(subject.config.exit, 'bracketExpression')
+
+        // @ts-expect-error handle is defined (2322).
+        exitLiteral = vi.spyOn(subject.config.exit, 'literal')
+
         subject.compile(tokenizer.events)
         tree = subject.stack[0] as Tree
+      })
+
+      it('should apply hooks in order', () => {
+        // Arrange
+        const calls: number = tokenizer.events.length / 2
+
+        // Expect
+        expect(beforeEnter).toHaveBeenCalledTimes(calls)
+        expect(beforeEnter).toHaveBeenCalledBefore(afterEnter)
+        expect(beforeEnter).toHaveBeenCalledBefore(enterBracketExpression)
+        expect(afterEnter).toHaveBeenCalledTimes(calls)
+        expect(afterEnter).toHaveBeenCalledBefore(beforeExit)
+        expect(afterEnter).toHaveBeenCalledAfter(enterBracketExpression)
+        expect(beforeExit).toHaveBeenCalledTimes(calls)
+        expect(beforeExit).toHaveBeenCalledBefore(afterExit)
+        expect(beforeExit).toHaveBeenCalledBefore(beforeExit2)
+        expect(beforeExit).toHaveBeenCalledBefore(exitBracketExpression)
+        expect(beforeExit2).toHaveBeenCalledTimes(calls)
+        expect(beforeExit2).toHaveBeenCalledBefore(afterExit)
+        expect(beforeExit2).toHaveBeenCalledBefore(exitBracketExpression)
+        expect(afterExit).toHaveBeenCalledTimes(calls)
+        expect(afterExit).toHaveBeenCalledBefore(afterExit2)
+        expect(afterExit).toHaveBeenCalledAfter(exitLiteral)
+        expect(afterExit2).toHaveBeenCalledTimes(calls)
+        expect(afterExit2).toHaveBeenCalledAfter(exitLiteral)
       })
 
       it('should apply tree transforms in order', () => {
