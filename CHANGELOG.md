@@ -1,3 +1,9 @@
+## [1.0.0-alpha.9](https://github.com/flex-development/mark-compiler/compare/1.0.0-alpha.8...1.0.0-alpha.9) (2026-10-11)
+
+### :sparkles: Features
+
+- [[`2e318f9`](https://github.com/flex-development/mark-compiler/commit/2e318f9b045155397f92ec946effcda8842ef75c)] hooks support
+
 ## [1.0.0-alpha.8](https://github.com/flex-development/mark-compiler/compare/1.0.0-alpha.7...1.0.0-alpha.8) (2026-10-11)
 
 ### :package: Build
@@ -122,6 +128,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`1dbbbdb`](https://github.com/flex-development/mark-compiler/commit/1dbbbdb4197bbf31530d57e3a8c67d9958deb543)] initial commit
+
 
 
 
