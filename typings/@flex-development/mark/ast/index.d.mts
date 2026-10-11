@@ -11,6 +11,10 @@ declare module '@flex-development/mark/ast' {
     canContainEols?: string[] | null | undefined
   }
 
+  interface FragmentChildMap {
+    mark: unist.Node
+  }
+
   interface NodeMap {
     literal: unist.Literal
     node: unist.Node
