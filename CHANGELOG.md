@@ -1,3 +1,9 @@
+## [1.0.0-alpha.8](https://github.com/flex-development/mark-compiler/compare/1.0.0-alpha.7...1.0.0-alpha.8) (2026-10-11)
+
+### :package: Build
+
+- [[`7b4369c`](https://github.com/flex-development/mark-compiler/commit/7b4369c243310831f7963b7afe869155b4d28d84)] **deps:** bump @flex-development/mark from 1.0.0-alpha.7 to 1.0.0-alpha.8
+
 ## [1.0.0-alpha.7](https://github.com/flex-development/mark-compiler/compare/1.0.0-alpha.6...1.0.0-alpha.7) (2026-10-10)
 
 ### :package: Build
@@ -116,6 +122,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`1dbbbdb`](https://github.com/flex-development/mark-compiler/commit/1dbbbdb4197bbf31530d57e3a8c67d9958deb543)] initial commit
+
 
 
 
