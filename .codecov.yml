@@ -25,14 +25,18 @@ component_management:
       - type: project
         target: 100%
   individual_components:
+    - component_id: ast
+      name: ast
+      paths:
+        - src/ast/*.mts
+    - component_id: compile
+      name: compile
+      paths:
+        - src/compile/*.mts
     - component_id: internal
       name: internal
       paths:
         - src/internal/*.mts
-    - component_id: utils
-      name: utils
-      paths:
-        - src/utils/*.mts
 
 coverage:
   precision: 2
@@ -99,4 +103,5 @@ ignore:
   - '**/types/'
 
 profiling:
-  critical_files_paths: []
+  critical_files_paths:
+    - src/compile/create.mts

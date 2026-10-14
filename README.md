@@ -58,14 +58,14 @@ yarn add @flex-development/mark-compiler
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { createCompiler } from 'https://esm.sh/@flex-development/mark-compiler'
+import { createCompiler } from 'https://esm.sh/@flex-development/mark-compiler/ast'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { createCompiler } from 'https://esm.sh/@flex-development/mark-compiler'
+  import { createCompiler } from 'https://esm.sh/@flex-development/mark-compiler/ast'
 </script>
 ```
 

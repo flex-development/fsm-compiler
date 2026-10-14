@@ -3,6 +3,7 @@ cefc
 commitlintrc
 dedupe
 devlop
+exiter
 fbca
 gpgsign
 hmarr
