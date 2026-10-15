@@ -1,3 +1,25 @@
+## [1.0.0-alpha.10](https://github.com/flex-development/mark-compiler/compare/1.0.0-alpha.9...1.0.0-alpha.10) (2026-10-14)
+
+### ⚠ BREAKING CHANGES
+
+- generic compiler api
+
+### :package: Build
+
+- [[`6782586`](https://github.com/flex-development/mark-compiler/commit/67825866cb2a4112bcd96b91b936891c3d2e533e)] **deps-dev:** Bump dprint from 0.61.1 to 0.62.0 ([#72](https://github.com/flex-development/mark-compiler/issues/72))
+- [[`5940f12`](https://github.com/flex-development/mark-compiler/commit/5940f12813ae68fe3abf9b9f486af125235d2c42)] **deps-dev:** Bump node-notifier from 10.0.1 to 11.0.0 ([#71](https://github.com/flex-development/mark-compiler/issues/71))
+- [[`51eb743`](https://github.com/flex-development/mark-compiler/commit/51eb743b3af2ae3f0e789cc57428f2fab043fe93)] **deps-dev:** Bump rollup from 4.64.3 to 4.64.5 ([#73](https://github.com/flex-development/mark-compiler/issues/73))
+
+### :robot: Continuous Integration
+
+- [[`12a1f5e`](https://github.com/flex-development/mark-compiler/commit/12a1f5e0bd75315b02cca3f2f1f7635bb99d985b)] **deps:** bump actions/setup-node from 7.0.0 to 7.1.0
+- [[`15c77c2`](https://github.com/flex-development/mark-compiler/commit/15c77c2c661459df6a311d8a6ee0ff8f2bc09436)] **deps:** bump actions/upload-artifact from 7.0.1 to 7.0.2
+- [[`01fdb75`](https://github.com/flex-development/mark-compiler/commit/01fdb75cf2a0422c407c78e0b1d039b985f45c60)] **deps:** bump streetsidesoftware/cspell-action from 8.4.0 to 9.1.0
+
+### :sparkles: Features
+
+- [[`239941b`](https://github.com/flex-development/mark-compiler/commit/239941bd51ab3ef7f64b2c2fe68e1e7484868eec)] generic compiler api
+
 ## [1.0.0-alpha.9](https://github.com/flex-development/mark-compiler/compare/1.0.0-alpha.8...1.0.0-alpha.9) (2026-10-11)
 
 ### :sparkles: Features
@@ -128,6 +150,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`1dbbbdb`](https://github.com/flex-development/mark-compiler/commit/1dbbbdb4197bbf31530d57e3a8c67d9958deb543)] initial commit
+
 
 
 
